@@ -495,20 +495,20 @@ for (let value of tiles.getTilesByType(assets.tile`myTile8`)) {
     skellie = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . f f f f f f . . . . . 
-        . . . f f 4 4 4 4 4 4 f f . . . 
-        . . f 4 4 4 4 4 4 4 4 4 4 f . . 
-        . f 4 4 4 4 4 4 4 4 4 4 4 4 f . 
-        . f 4 4 4 4 4 4 4 4 4 4 4 4 f . 
-        f 4 4 4 f f f 4 4 f f f 4 4 4 f 
-        f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        f 4 4 4 4 4 4 f 4 4 4 4 4 4 4 f 
-        f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
-        . f f f f f f f f f f f f f f . 
+        . . . f f f f f f f f . . . . . 
+        . . . f 6 6 6 6 6 6 f . . . . . 
+        . . . f 6 6 6 6 6 5 f . . . . . 
+        . . . f 6 6 6 1 7 5 f . . . . . 
+        . . . f 6 6 5 1 7 5 f . . . . . 
+        . . . f 6 5 5 5 5 5 f . . . . . 
+        . . . f 5 5 5 5 5 5 f . . . . . 
+        . . . f f f f f f f f f . . . . 
+        . . . . f 7 7 7 7 7 5 f . . . . 
+        . . . . f 7 7 7 7 f f f . . . . 
+        . . . . f 4 4 4 4 f . . . . . . 
+        . . . . f 4 4 4 4 f . . . . . . 
+        . . . . f e e e e f . . . . . . 
+        . . . . f f f f f f . . . . . . 
         `, SpriteKind.Enemy)
     tiles.placeOnTile(skellie, value)
     tiles.setTileAt(value, assets.tile`myTile5`)
@@ -517,15 +517,105 @@ game.onUpdateInterval(3000, function () {
     for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
         if (value.vx == -25) {
             value.setVelocity(25, 0)
+            value.setImage(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . f f f f f f f f . . . . . 
+                . . . f 6 6 6 6 6 6 f . . . . . 
+                . . . f 6 6 6 6 6 5 f . . . . . 
+                . . . f 6 6 6 1 7 5 f . . . . . 
+                . . . f 6 6 5 1 7 5 f . . . . . 
+                . . . f 6 5 5 5 5 5 f . . . . . 
+                . . . f 5 5 5 5 5 5 f . . . . . 
+                . . . f f f f f f f f f . . . . 
+                . . . . f 7 7 7 7 7 5 f . . . . 
+                . . . . f 7 7 7 7 f f f . . . . 
+                . . . . f 4 4 4 4 f . . . . . . 
+                . . . . f 4 4 4 4 f . . . . . . 
+                . . . . f e e e e f . . . . . . 
+                . . . . f f f f f f . . . . . . 
+                `)
         } else if (value.vx == 25) {
             value.setVelocity(-25, 0)
+            value.setImage(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . f f f f f f f f . . . 
+                . . . . . f 6 6 6 6 6 6 f . . . 
+                . . . . . f 5 6 6 6 6 6 f . . . 
+                . . . . . f 5 7 1 6 6 6 f . . . 
+                . . . . . f 5 7 1 5 6 6 f . . . 
+                . . . . . f 5 5 5 5 5 6 f . . . 
+                . . . . . f 5 5 5 5 5 5 f . . . 
+                . . . . f f f f f f f f f . . . 
+                . . . . f 5 7 7 7 7 7 f . . . . 
+                . . . . f f f 7 7 7 7 f . . . . 
+                . . . . . . f 4 4 4 4 f . . . . 
+                . . . . . . f 4 4 4 4 f . . . . 
+                . . . . . . f e e e e f . . . . 
+                . . . . . . f f f f f f . . . . 
+                `)
         } else {
             if (value.isHittingTile(CollisionDirection.Left)) {
                 value.setVelocity(25, 0)
+                value.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . f f f f f f f f . . . . . 
+                    . . . f 6 6 6 6 6 6 f . . . . . 
+                    . . . f 6 6 6 6 6 5 f . . . . . 
+                    . . . f 6 6 6 1 7 5 f . . . . . 
+                    . . . f 6 6 5 1 7 5 f . . . . . 
+                    . . . f 6 5 5 5 5 5 f . . . . . 
+                    . . . f 5 5 5 5 5 5 f . . . . . 
+                    . . . f f f f f f f f f . . . . 
+                    . . . . f 7 7 7 7 7 5 f . . . . 
+                    . . . . f 7 7 7 7 f f f . . . . 
+                    . . . . f 4 4 4 4 f . . . . . . 
+                    . . . . f 4 4 4 4 f . . . . . . 
+                    . . . . f e e e e f . . . . . . 
+                    . . . . f f f f f f . . . . . . 
+                    `)
             } else if (value.isHittingTile(CollisionDirection.Right)) {
                 value.setVelocity(-25, 0)
+                value.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . f f f f f f f f . . . 
+                    . . . . . f 6 6 6 6 6 6 f . . . 
+                    . . . . . f 5 6 6 6 6 6 f . . . 
+                    . . . . . f 5 7 1 6 6 6 f . . . 
+                    . . . . . f 5 7 1 5 6 6 f . . . 
+                    . . . . . f 5 5 5 5 5 6 f . . . 
+                    . . . . . f 5 5 5 5 5 5 f . . . 
+                    . . . . f f f f f f f f f . . . 
+                    . . . . f 5 7 7 7 7 7 f . . . . 
+                    . . . . f f f 7 7 7 7 f . . . . 
+                    . . . . . . f 4 4 4 4 f . . . . 
+                    . . . . . . f 4 4 4 4 f . . . . 
+                    . . . . . . f e e e e f . . . . 
+                    . . . . . . f f f f f f . . . . 
+                    `)
             } else {
                 value.setVelocity(25, 0)
+                value.setImage(img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . f f f f f f f f . . . . . 
+                    . . . f 6 6 6 6 6 6 f . . . . . 
+                    . . . f 6 6 6 6 6 5 f . . . . . 
+                    . . . f 6 6 6 1 7 5 f . . . . . 
+                    . . . f 6 6 5 1 7 5 f . . . . . 
+                    . . . f 6 5 5 5 5 5 f . . . . . 
+                    . . . f 5 5 5 5 5 5 f . . . . . 
+                    . . . f f f f f f f f f . . . . 
+                    . . . . f 7 7 7 7 7 5 f . . . . 
+                    . . . . f 7 7 7 7 f f f . . . . 
+                    . . . . f 4 4 4 4 f . . . . . . 
+                    . . . . f 4 4 4 4 f . . . . . . 
+                    . . . . f e e e e f . . . . . . 
+                    . . . . f f f f f f . . . . . . 
+                    `)
             }
         }
     }
