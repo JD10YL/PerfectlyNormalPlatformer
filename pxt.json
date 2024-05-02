@@ -1,0 +1,50 @@
+{
+    "name": "Platformer",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-platformer": "github:microsoft/arcade-platformer#v0.0.9",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
+        "storyboard": "*",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.12.51",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj",
+    "palette": [
+        "#000000",
+        "#f5edba",
+        "#9d303b",
+        "#d26471",
+        "#9007A2",
+        "#c0c741",
+        "#647d34",
+        "#34859d",
+        "#17434b",
+        "#7ec4c1",
+        "#584563",
+        "#FF00F7",
+        "#FFEDAD",
+        "#d79b7d",
+        "#9a6348",
+        "#1f0e1c"
+    ]
+}
