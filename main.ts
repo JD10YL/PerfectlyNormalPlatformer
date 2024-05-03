@@ -23,6 +23,213 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
         })
     }
 })
+function LevelFortress () {
+    if (Math.percentChance(19)) {
+        tiles.setCurrentTilemap(tilemap`level14`)
+    } else if (Math.percentChance(19)) {
+        tiles.setCurrentTilemap(tilemap`level26`)
+    } else if (Math.percentChance(19)) {
+        tiles.setCurrentTilemap(tilemap`level28`)
+    } else if (Math.percentChance(19)) {
+        tiles.setCurrentTilemap(tilemap`level32`)
+    } else if (Math.percentChance(19)) {
+        tiles.setCurrentTilemap(tilemap`level34`)
+    } else {
+        tiles.setCurrentTilemap(tilemap`level36`)
+    }
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile16`)
+    for (let value of sprites.allOfKind(SpriteKind.Food)) {
+        sprites.destroy(value)
+    }
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        sprites.destroy(value)
+    }
+    for (let value of tiles.getTilesByType(assets.tile`myTile8`)) {
+        skellie = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . f f f f f f f f . . . . . 
+            . . . f 6 6 6 6 6 6 f . . . . . 
+            . . . f 6 6 6 6 6 5 f . . . . . 
+            . . . f 6 6 6 1 7 5 f . . . . . 
+            . . . f 6 6 5 1 7 5 f . . . . . 
+            . . . f 6 5 5 5 5 5 f . . . . . 
+            . . . f 5 5 5 5 5 5 f . . . . . 
+            . . . f f f f f f f f f . . . . 
+            . . . . f 7 7 7 7 7 5 f . . . . 
+            . . . . f 7 7 7 7 f f f . . . . 
+            . . . . f 4 4 4 4 f . . . . . . 
+            . . . . f 4 4 4 4 f . . . . . . 
+            . . . . f e e e e f . . . . . . 
+            . . . . f f f f f f . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnTile(skellie, value)
+        tiles.setTileAt(value, assets.tile`myTile5`)
+    }
+    for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 . . . . . . . . . 
+            . . . . 7 7 . . . . . . . . . . 
+            . . . 7 7 . . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . 7 . . 7 7 7 7 7 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 7 7 7 7 7 . . 7 . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . . 7 7 . . . 
+            . . . . . . . . . . 7 7 . . . . 
+            . . . . . . . . . 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Food)
+        tiles.placeOnTile(mySprite2, value)
+        animation.runImageAnimation(
+        mySprite2,
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . 7 7 7 . . . . . 
+            . . . . . . . . . . 7 7 7 . . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . . 7 7 7 . . . . . . . . . . 
+            . . . . . 7 7 7 . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . 7 7 . . . . . 
+            . . . . . . . . . . 7 7 . . . . 
+            . . . . . . . . . . . 7 7 . . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . 7 7 7 7 7 7 . . 7 . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . 7 . . 7 7 7 7 7 7 . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . . 7 7 . . . . . . . . . . . 
+            . . . . 7 7 . . . . . . . . . . 
+            . . . . . 7 7 . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . 7 . . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . . . . 7 . . 
+            . . . . . 7 7 7 7 7 7 . . 7 7 . 
+            . . . . . 7 9 9 9 9 7 . . . 7 . 
+            . . . . . 7 9 9 9 9 7 . . . 7 . 
+            . 7 . . . 7 9 9 9 9 7 . . . . . 
+            . 7 . . . 7 9 9 9 9 7 . . . . . 
+            . 7 7 . . 7 7 7 7 7 7 . . . . . 
+            . . 7 . . . . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . . 7 . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . 7 . . . 7 7 7 7 7 7 . . . 7 . 
+            . 7 . . . 7 9 9 9 9 7 . . . 7 . 
+            . 7 . . . 7 9 9 9 9 7 . . . 7 . 
+            . 7 . . . 7 9 9 9 9 7 . . . 7 . 
+            . 7 . . . 7 9 9 9 9 7 . . . 7 . 
+            . 7 . . . 7 7 7 7 7 7 . . . 7 . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 7 . . . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . 7 . . . . . . . . . . . . . 
+            . 7 7 . . 7 7 7 7 7 7 . . . . . 
+            . 7 . . . 7 9 9 9 9 7 . . . . . 
+            . 7 . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . 7 . 
+            . . . . . 7 9 9 9 9 7 . . . 7 . 
+            . . . . . 7 7 7 7 7 7 . . 7 7 . 
+            . . . . . . . . . . . . . 7 . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . . . 7 . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 . . . . . . . . . 
+            . . . . 7 7 . . . . . . . . . . 
+            . . . 7 7 . . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . 7 . . 7 7 7 7 7 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 7 7 7 7 7 . . 7 . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . . 7 7 . . . 
+            . . . . . . . . . . 7 7 . . . . 
+            . . . . . . . . . 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 . . . . . . . . 
+            . . . 7 7 7 . . . . . . . . . . 
+            . . 7 7 . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 9 9 9 9 7 . . . . . 
+            . . . . . 7 7 7 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . . . . . . 7 7 7 . . . 
+            . . . . . . . . 7 7 7 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        125,
+        true
+        )
+    }
+}
 function LevelDragon () {
     tiles.setCurrentTilemap(tilemap`level5`)
     scene.setBackgroundImage(img`
@@ -150,14 +357,30 @@ function LevelDragon () {
     for (let value of sprites.allOfKind(SpriteKind.Food)) {
         sprites.destroy(value)
     }
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        sprites.destroy(value)
+    }
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.tileKindAt(TileDirection.Center, assets.tile`myTile13`)) {
         if (signread) {
             signread = false
-            story.printCharacterText("One of these blocks will send you to the final level. But the one that does changes when you die.                                      ", "Sign")
+            story.printCharacterText("One of these blocks will send you to the final level. But the one that does, will changes when you die.", "Sign")
         }
     }
+    if (mySprite.tileKindAt(TileDirection.Center, assets.tile`myTile18`)) {
+        if (sign2read) {
+            sign2read = false
+            story.printCharacterText("One of these tunnels MAY lead to the end. But the one that does, will change whenever you die", "Sign")
+        }
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile17`, function (sprite, location) {
+    color.startFadeFromCurrent(color.Black)
+    timer.after(1000, function () {
+        color.startFadeFromCurrent(color.originalPalette)
+        LevelDragon()
+    })
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
@@ -166,15 +389,36 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
         game.reset()
     })
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, location) {
+    mySprite.startEffect(effects.warmRadial, 500)
+    color.startFadeFromCurrent(color.Black)
+    timer.after(500, function () {
+        color.startFadeFromCurrent(color.originalPalette)
+        LevelFortress()
+    })
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
+    mySprite.startEffect(effects.warmRadial, 500)
+    sprites.destroy(mySprite)
+    color.startFadeFromCurrent(color.Black)
+    timer.after(500, function () {
+        game.reset()
+    })
+})
+let sign2read = false
 let skellie: Sprite = null
 let mySprite2: Sprite = null
 let signread = false
 let mySprite: platformer.PlatformerSprite = null
 color.startFade(color.Black, color.originalPalette)
-if (Math.percentChance(33)) {
+if (Math.percentChance(20)) {
     tiles.setCurrentTilemap(tilemap`level2`)
-} else if (Math.percentChance(33)) {
+} else if (Math.percentChance(20)) {
     tiles.setCurrentTilemap(tilemap`level7`)
+} else if (Math.percentChance(20)) {
+    tiles.setCurrentTilemap(tilemap`level20`)
+} else if (Math.percentChance(20)) {
+    tiles.setCurrentTilemap(tilemap`level22`)
 } else {
     tiles.setCurrentTilemap(tilemap`level9`)
 }
