@@ -9,7 +9,8 @@
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
         "storyboard": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301"
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301",
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1"
     },
     "files": [
         "main.blocks",
