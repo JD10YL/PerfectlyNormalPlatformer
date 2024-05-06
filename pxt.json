@@ -1,6 +1,6 @@
 {
     "name": "Platformer",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -10,7 +10,9 @@
         "storyboard": "*",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
         "arcade-background-scroll": "github:microsoft/arcade-background-scroll#6cfbf925b9a4d5ddf3e1078e6cf6ca6a1aebb301",
-        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1"
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.0.1",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
+        "Achievements": "github:meeeeeeeep1/achievements#4910ba22f82f73691752a6af29ed23215662723a"
     },
     "files": [
         "main.blocks",
